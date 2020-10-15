@@ -1,3 +1,6 @@
+Ruun By : npm start
+Graphiql : http://localhost:4000/graphql
+
 Sample Query with Inputs:
 
 Create Author :
@@ -7,6 +10,11 @@ mutation CreateAuthor($authorInput: AuthorInput) {
     id
     name
     email
+    books {
+      id
+      name
+      desc
+    }
   }
 }
 
@@ -21,14 +29,16 @@ I/P :
 
 Update Author :
 
-mutation UpdateAuthor(
-  $id: ID!,
-  $authorInput: AuthorInput,
-) {
-  updateAuthor(id: $id, input: $authorInput) {
+mutation UpdateAuthor($id: ID!, $authorInput: AuthorInput) {
+  updateAuthor(id: $id ,input: $authorInput) {
     id
     name
     email
+    books {
+      id
+      name
+      desc
+    }
   }
 }
 
@@ -49,6 +59,11 @@ query FindAuthors($id: ID!) {
     id
     name
     email
+    books {
+      id
+      name
+      desc
+    }
   }
 }
 
@@ -64,8 +79,102 @@ query ShowAuthors {
     id
     name
     email
+    books {
+      id
+      name
+      desc
+    }
   }
 }
 
 I/P: 
 {}
+
+Create Book :
+
+mutation CreateBook($bookInput: BookInput) {
+  createBook(input: $bookInput) {
+    id
+    name
+    desc
+    author {
+      id
+      name
+      email
+    }
+  }
+}
+
+I/P:
+{
+  "bookInput": {
+    "name": "The Bohemian Souls",
+    "desc": "Our Travel journey",
+    "authorID": "d0f13dfbcfa7c41d1d57"
+  }
+}
+
+Show Books:
+
+query ShowBooks {
+  showAllBooks {
+    id
+    name
+    desc
+    author {
+      id
+      name
+      email
+    }
+  }
+}
+
+I/P:
+{}
+
+Find Book:
+
+query FindBook($id: ID!) {
+  getBook(id: $id) {
+    id
+    name
+    desc
+    author {
+      id
+      name
+      email
+    }
+  }
+}
+
+I/P:
+
+{
+  "id": "39bb023a24acd8d2dc20"
+}
+
+Update Book:
+
+mutation UpdateBook($id: ID!, $bookInput: BookInput) {
+  updateBook(id: $id, input: $bookInput) {
+    id
+    name
+    desc
+    author {
+      id
+      name
+      email
+    }
+  }
+}
+
+I/P:
+
+{
+  "id": "39bb023a24acd8d2dc20", 
+  "bookInput": {
+    "name": "The Bong Foodie Souls",
+    "desc": "Our Gastronomical journey",
+    "authorID": "d0f13dfbcfa7c41d1d57"
+  }
+}
