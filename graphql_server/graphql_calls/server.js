@@ -11,7 +11,7 @@ const serverCalls = {
     updateBook,
     getBook,
     showAllBooks,
-    showAllBooksByAuthor,
+    showAllBooksByAuthor
 };
  
 exports.serverCalls = serverCalls;
