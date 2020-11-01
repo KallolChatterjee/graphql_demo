@@ -29,6 +29,8 @@ function ShowAllBooksContainer(props) {
             queryReference={queryReference} 
             toggleSideColumn= {props.toggleSideColumn}
             setsideColumnType={props.setsideColumnType}
+            sideColumnType={props.sideColumnType}
+            isSideColumnShown={props.isSideColumnShown}
           />
         )}
       </Suspense>

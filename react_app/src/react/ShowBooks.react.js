@@ -17,6 +17,8 @@ export default function ShowAuthors(props) {
             books={books} 
             toggleSideColumn= {props.toggleSideColumn}
             setsideColumnType={props.setsideColumnType}
+            sideColumnType={props.sideColumnType}
+            isSideColumnShown={props.isSideColumnShown}
         />
     );
   }

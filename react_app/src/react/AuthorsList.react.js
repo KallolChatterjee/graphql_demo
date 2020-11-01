@@ -12,7 +12,12 @@ export default function AuthorsList(props) {
     );
 
     const OnCreateNewClick = () => {
-        props.toggleSideColumn();
+        if (
+            props.isSideColumnShown === false ||
+            props.sideColumnType === 'CREATE_NEW'
+        ) {
+            props.toggleSideColumn();
+        }
         props.setsideColumnType('CREATE_NEW');
     };
 
@@ -55,6 +60,8 @@ export default function AuthorsList(props) {
                                         toggleSideColumn= {props.toggleSideColumn}
                                         setsideColumnType={props.setsideColumnType}
                                         setAuthorID={props.setAuthorID}
+                                        sideColumnType={props.sideColumnType}
+                                        isSideColumnShown={props.isSideColumnShown}
                                     />) 
                                 : <p>No Author found</p>
                             }

@@ -12,7 +12,12 @@ export default function BooksList(props) {
     );
 
     const OnCreateNewClick = () => {
-        props.toggleSideColumn();
+        if (
+            props.isSideColumnShown === false ||
+            props.sideColumnType === 'CREATE_NEW_BOOK'
+        ) {
+            props.toggleSideColumn();
+        }
         props.setsideColumnType('CREATE_NEW_BOOK');
     };
 
@@ -52,6 +57,8 @@ export default function BooksList(props) {
                                         book={book}
                                         toggleSideColumn= {props.toggleSideColumn}
                                         setsideColumnType={props.setsideColumnType}
+                                        sideColumnType={props.sideColumnType}
+                                        isSideColumnShown={props.isSideColumnShown}
                                     />) 
                                 : <p>No Book found</p>
                             }

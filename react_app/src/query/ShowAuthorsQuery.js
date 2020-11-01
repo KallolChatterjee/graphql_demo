@@ -4,6 +4,7 @@ const ShowAuthorsQuery = graphql`
   query ShowAuthorsQuery {
     showAllAuthor {
       ...AuthorsList_author
+      ...AuthorsDropDown_author
     }
   }
 `;

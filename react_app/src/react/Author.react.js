@@ -10,13 +10,23 @@ export default function Author(props) {
     );
 
     const showBooksClick = () => {
-        props.toggleSideColumn();
+        if (
+            props.isSideColumnShown === false ||
+            props.sideColumnType === 'SHOW_AUTHOR_BOOK'
+        ) {
+            props.toggleSideColumn();
+        }
         props.setsideColumnType('SHOW_AUTHOR_BOOK');
         props.setAuthorID(author.id);
     }
 
     const updateAuthorClick = () => {
-        props.toggleSideColumn();
+        if (
+            props.isSideColumnShown === false || 
+            props.sideColumnType === 'UPDATE_AUTHOR'
+        ) {
+            props.toggleSideColumn();
+        }
         props.setsideColumnType('UPDATE_AUTHOR');
     }
 

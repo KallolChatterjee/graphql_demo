@@ -2,6 +2,7 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import '../App.css';
 import CreateNewAuthor from './CreateNewAuthor.react';
+import CreateNewBook from './CreateNewBook.react';
 import ShowAllBooksPerAuthorContainer from './ShowAllBooksPerAuthorContainer.react';
 
 export default function SideColumn(props) {
@@ -18,6 +19,8 @@ export default function SideColumn(props) {
         title = 'Update Author Details'; 
     } else if(props.sideColumnType === 'SHOW_AUTHOR') {
         title = 'Show Author For This Current Book'; 
+    } else if(props.sideColumnType === 'CREATE_NEW_BOOK') {
+        title = 'Create New Book';
     } else if(props.sideColumnType === 'UPDATE_BOOK') {
         title = 'Update Book Details'; 
     }
@@ -31,8 +34,10 @@ export default function SideColumn(props) {
         body = <CreateNewAuthor sideColumnType={props.sideColumnType}/>; 
     } else if(props.sideColumnType === 'SHOW_AUTHOR') {
         body = <CreateNewAuthor sideColumnType={props.sideColumnType}/>;
-    } else if(props.sideColumnType === 'UPDATE_AUTHOR') {
-        body = 'Update Book'; 
+    } else if(props.sideColumnType === 'CREATE_NEW_BOOK') {
+        body = <CreateNewBook sideColumnType={props.sideColumnType}/>;
+    } else if(props.sideColumnType === 'UPDATE_BOOK') {
+        body = <CreateNewBook sideColumnType={props.sideColumnType}/>; 
     }
 
     return (

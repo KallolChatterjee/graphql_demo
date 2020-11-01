@@ -30,6 +30,9 @@ function ShowAuthorsContainer(props) {
             toggleSideColumn= {props.toggleSideColumn}
             setsideColumnType={props.setsideColumnType}
             setAuthorID={props.setAuthorID}
+            showAsDropDown={props.showAsDropDown}
+            sideColumnType={props.sideColumnType}
+            isSideColumnShown={props.isSideColumnShown}
           />
         )}
       </Suspense>

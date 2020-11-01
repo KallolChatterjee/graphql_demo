@@ -6,12 +6,12 @@ import ShowAllBooksContainer from './react/ShowAllBooksContainer.react';
 import SideColumn from './react/SideColumn.react';
 
 export default function App() {
-    const [showSideColumn, setShowSideColumn] = useState(false);
+    const [isSideColumnShown, setIsSideColumnShown] = useState(false);
     const [sideColumnType, setsideColumnType] = useState(null);
     const [authorID, setAuthorID] = useState(null);
 
     const toggleSideColumn = () => {
-        setShowSideColumn(!showSideColumn);
+        setIsSideColumnShown(!isSideColumnShown);
     };
 
     return (
@@ -21,13 +21,18 @@ export default function App() {
                     toggleSideColumn= {toggleSideColumn}
                     setsideColumnType= {setsideColumnType}
                     setAuthorID={setAuthorID}
+                    showAsDropDown={false}
+                    sideColumnType={sideColumnType}
+                    isSideColumnShown={isSideColumnShown}
                 />
                 <ShowAllBooksContainer
                     toggleSideColumn= {toggleSideColumn}
                     setsideColumnType= {setsideColumnType}
+                    sideColumnType={sideColumnType}
+                    isSideColumnShown={isSideColumnShown}
                 />
             </div>
-            {showSideColumn && (
+            {isSideColumnShown && (
                 <div class="col">
                     <SideColumn 
                         sideColumnType ={sideColumnType}
